@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Homepage</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: #000;
+    background-color: #7fc9c3;
+  }
+
+  /* Option 1: full-screen photo. A fixed layer behind the page, so it stays still while you scroll (works on iPhone too). */
+  #bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #7fc9c3;
+    background-image: url("duck-full.jpg");
+    background-size: cover;
+    background-position: 42% 50%;
+    background-repeat: no-repeat;
+  }
+  /* Option 2: tiled, old-school wallpaper style. */
+  body.tiled #bg {
+    background-image: url("duck-tile.jpg");
+    background-size: 225px 300px;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  a:link { color: #0000EE; }
+  a:visited { color: #551A8B; }
+
+  .preview-bar {
+    position: sticky; top: 0;
+    background: #ffffcc;
+    border-bottom: 2px solid #000;
+    padding: 6px 8px;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 13px;
+    text-align: center;
+  }
+  .preview-bar button {
+    font-family: inherit; font-size: 13px;
+    padding: 3px 10px; margin: 0 2px;
+    background: #ddd; border: 2px outset #eee; cursor: pointer;
+  }
+  .preview-bar button.on { border-style: inset; background: #bbb; font-weight: bold; }
+
+  .page {
+    max-width: 600px;
+    margin: 28px auto 40px;
+    box-sizing: border-box;
+    width: calc(100% - 28px);
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.62);
+    border: 4px ridge #999;
+  }
+  h1 { text-align: center; font-size: 30px; margin: 6px 0 4px; }
+  .tagline { text-align: center; font-style: italic; margin: 0 0 10px; }
+  .nav { text-align: center; margin: 10px 0; }
+  h2 { font-size: 22px; margin: 18px 0 6px; }
+  ul { padding-left: 22px; }
+  li { margin: 8px 0; }
+  .meta { font-size: 15px; color: #222; }
+  .like {
+    font-family: "Times New Roman", Times, serif; font-size: 14px;
+    background: #eee; border: 2px outset #ddd; padding: 0 6px; cursor: pointer;
+  }
+  .like:active { border-style: inset; }
+  .counter { text-align: center; margin: 18px 0 6px; }
+  .digits {
+    display: inline-block;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold; font-size: 20px; letter-spacing: 3px;
+    background: #000; color: #33ff33;
+    padding: 2px 8px; border: 2px inset #666;
+  }
+  .footer { text-align: center; font-size: 14px; color: #333; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+
+<div class="preview-bar">
+  Background preview:
+  <button id="btn-full" class="on" type="button">Full screen</button>
+  <button id="btn-tiled" type="button">Tiled</button>
+</div>
+
+<div class="page">
+  <h1>Welcome to My Homepage!</h1>
+  <p class="tagline">Essays, drawings &amp; photographs</p>
+  <hr>
+  <div class="nav">
+    [ <a href="#">Essays</a> | <a href="#">Drawings</a> | <a href="#">Photos</a> | <a href="#">About Me</a> ]
+  </div>
+  <hr>
+
+  <h2>What's New</h2>
+  <ul>
+    <li><a href="#">Sample essay title</a><br>
+      <span class="meta">Essay &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
+      <button class="like" type="button">&hearts; Like</button></li>
+    <li><a href="#">Sample drawing title</a><br>
+      <span class="meta">Drawing &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
+      <button class="like" type="button">&hearts; Like</button></li>
+    <li><a href="#">Duck on the water</a><br>
+      <span class="meta">Photo &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
+      <button class="like" type="button">&hearts; Like</button></li>
+  </ul>
+
+  <hr>
+  <div class="counter">You are visitor number<br><span class="digits">000001</span></div>
+  <p class="footer">Last updated November 13, 2026<br>Best viewed in any browser</p>
+</div>
+
+<script>
+  var btnFull = document.getElementById('btn-full');
+  var btnTiled = document.getElementById('btn-tiled');
+  function setMode(tiled) {
+    document.body.classList.toggle('tiled', tiled);
+    btnTiled.classList.toggle('on', tiled);
+    btnFull.classList.toggle('on', !tiled);
+  }
+  btnFull.addEventListener('click', function () { setMode(false); });
+  btnTiled.addEventListener('click', function () { setMode(true); });
+  // Like buttons are just for show in this preview.
+  document.querySelectorAll('.like').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var c = b.parentNode.querySelector('.lc');
+      c.textContent = String(Number(c.textContent) + 1);
+    });
+  });
+</script>
+</body>
+</html>
