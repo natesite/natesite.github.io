@@ -7,7 +7,7 @@
 <style>
   html, body { margin: 0; padding: 0; }
   /* Matches the edge of the duck photo, so any strip Safari shows around its bars blends in. */
-  html { background-color: #85a3a8; }
+  html { background-color: #8aa2a7; }
   body {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
@@ -29,6 +29,12 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
+  /* Thin solid bands at the top and bottom edges. iPhone Safari copies their colors into the
+     strips behind the clock and the toolbar, so those strips match the photo's edges. */
+  .edge { position: fixed; left: 0; width: 100%; height: 6px; z-index: -1; }
+  .edge-top { top: 0; background-color: #8aa2a7; }
+  .edge-bottom { bottom: 0; background-color: #625e56; }
+
   a:link { color: #0000EE; }
   a:visited { color: #551A8B; }
   .page {
@@ -47,6 +53,8 @@
 </head>
 <body>
 <div id="bg"></div>
+<div class="edge edge-top"></div>
+<div class="edge edge-bottom"></div>
 
 <div class="page">
   <h1>Drawings</h1>

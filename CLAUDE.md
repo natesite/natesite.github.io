@@ -15,6 +15,10 @@ This repository is public. Never put anything private in it, including this file
   1080x1920, centered). Nate chose full screen over tiled; `duck-tile.jpg` is an unused tiled
   version of an older duck photo. The background sits on a fixed `#bg` layer so it
   stays still on iPhone too.
+- iPhone Safari 26 always fills the strips behind the clock and the bottom toolbar with a solid
+  color and won't draw the fixed photo there. Each page has thin fixed `.edge-top` and
+  `.edge-bottom` bands whose colors Safari copies into those strips. They are sampled from the
+  photo's top (water) and bottom (gravel) edges on Nate's phone; update them if the photo changes.
 - The white content box is about 60% see-through: `rgba(255, 255, 255, 0.62)`.
 - Nate is usually on his phone, so every page must look good on a small screen. Check pages at
   phone width before saying a change is done.
