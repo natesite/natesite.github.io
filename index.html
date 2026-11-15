@@ -13,7 +13,7 @@
     background-color: #7fc9c3;
   }
 
-  /* Option 1: full-screen photo. A fixed layer behind the page, so it stays still while you scroll (works on iPhone too). */
+  /* Full-screen photo. A fixed layer behind the page, so it stays still while you scroll (works on iPhone too). */
   #bg {
     position: fixed;
     inset: 0;
@@ -24,32 +24,9 @@
     background-position: 42% 50%;
     background-repeat: no-repeat;
   }
-  /* Option 2: tiled, old-school wallpaper style. */
-  body.tiled #bg {
-    background-image: url("duck-tile.jpg");
-    background-size: 225px 300px;
-    background-repeat: repeat;
-    background-position: 0 0;
-  }
 
   a:link { color: #0000EE; }
   a:visited { color: #551A8B; }
-
-  .preview-bar {
-    position: sticky; top: 0;
-    background: #ffffcc;
-    border-bottom: 2px solid #000;
-    padding: 6px 8px;
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 13px;
-    text-align: center;
-  }
-  .preview-bar button {
-    font-family: inherit; font-size: 13px;
-    padding: 3px 10px; margin: 0 2px;
-    background: #ddd; border: 2px outset #eee; cursor: pointer;
-  }
-  .preview-bar button.on { border-style: inset; background: #bbb; font-weight: bold; }
 
   .page {
     max-width: 600px;
@@ -86,25 +63,19 @@
 <body>
 <div id="bg"></div>
 
-<div class="preview-bar">
-  Background preview:
-  <button id="btn-full" class="on" type="button">Full screen</button>
-  <button id="btn-tiled" type="button">Tiled</button>
-</div>
-
 <div class="page">
   <h1>Welcome to My Homepage!</h1>
-  <p class="tagline">Essays, drawings &amp; photographs</p>
+  <p class="tagline">Writings, drawings &amp; photographs</p>
   <hr>
   <div class="nav">
-    [ <a href="essays.html">Essays</a> | <a href="drawings.html">Drawings</a> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
+    [ <a href="writings.html">Writings</a> | <a href="drawings.html">Drawings</a> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
   </div>
   <hr>
 
   <h2>What's New</h2>
   <ul>
-    <li><a href="#">Sample essay title</a><br>
-      <span class="meta">Essay &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
+    <li><a href="#">Sample writing title</a><br>
+      <span class="meta">Writing &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
       <button class="like" type="button">&hearts; Like</button></li>
     <li><a href="#">Sample drawing title</a><br>
       <span class="meta">Drawing &middot; viewed 0 times &middot; <span class="lc">0</span> likes</span>
@@ -120,18 +91,6 @@
 </div>
 
 <script>
-  var btnFull = document.getElementById('btn-full');
-  var btnTiled = document.getElementById('btn-tiled');
-  function setMode(tiled) {
-    document.body.classList.toggle('tiled', tiled);
-    btnTiled.classList.toggle('on', tiled);
-    btnFull.classList.toggle('on', !tiled);
-    // Remember the choice so the other pages show the same background.
-    try { localStorage.setItem('bgMode', tiled ? 'tiled' : 'full'); } catch (e) {}
-  }
-  try { if (localStorage.getItem('bgMode') === 'tiled') setMode(true); } catch (e) {}
-  btnFull.addEventListener('click', function () { setMode(false); });
-  btnTiled.addEventListener('click', function () { setMode(true); });
   // Like buttons are just for show in this preview.
   document.querySelectorAll('.like').forEach(function (b) {
     b.addEventListener('click', function () {

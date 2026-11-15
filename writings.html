@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Essays</title>
+<title>Writings</title>
 <style>
   html, body { margin: 0; padding: 0; }
   body {
@@ -21,12 +21,6 @@
     background-size: cover;
     background-position: 42% 50%;
     background-repeat: no-repeat;
-  }
-  body.tiled #bg {
-    background-image: url("duck-tile.jpg");
-    background-size: 225px 300px;
-    background-repeat: repeat;
-    background-position: 0 0;
   }
   a:link { color: #0000EE; }
   a:visited { color: #551A8B; }
@@ -46,16 +40,12 @@
 </head>
 <body>
 <div id="bg"></div>
-<script>
-  // Use the same background as the home page preview (full screen or tiled).
-  try { if (localStorage.getItem('bgMode') === 'tiled') document.body.classList.add('tiled'); } catch (e) {}
-</script>
 
 <div class="page">
-  <h1>Essays</h1>
+  <h1>Writings</h1>
   <hr>
   <div class="nav">
-    [ <a href="index.html">Home</a> | <b>Essays</b> | <a href="drawings.html">Drawings</a> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
+    [ <a href="index.html">Home</a> | <b>Writings</b> | <a href="drawings.html">Drawings</a> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
   </div>
   <hr>
 
