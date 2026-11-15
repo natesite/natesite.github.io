@@ -11,8 +11,9 @@ This repository is public. Never put anything private in it, including this file
   `.nojekyll` is there so GitHub serves files exactly as they are.
 - Look: very basic early internet. Times New Roman, standard blue and purple links, a centered
   box with a ridged border, horizontal lines and an old-school visitor counter.
-- Background: Nate's duck photo, full screen (`duck-full.jpg`). Nate chose this over tiled;
-  `duck-tile.jpg` is the unused tiled version. The background sits on a fixed `#bg` layer so it
+- Background: Nate's photo of a duck standing at the edge of a pool, full screen (`duck-full.jpg`,
+  1080x1920, centered). Nate chose full screen over tiled; `duck-tile.jpg` is an unused tiled
+  version of an older duck photo. The background sits on a fixed `#bg` layer so it
   stays still on iPhone too.
 - The white content box is about 60% see-through: `rgba(255, 255, 255, 0.62)`.
 - Nate is usually on his phone, so every page must look good on a small screen. Check pages at
