@@ -97,7 +97,7 @@
   <p class="tagline">Essays, drawings &amp; photographs</p>
   <hr>
   <div class="nav">
-    [ <a href="#">Essays</a> | <a href="#">Drawings</a> | <a href="#">Photos</a> | <a href="#">About Me</a> ]
+    [ <a href="essays.html">Essays</a> | <a href="drawings.html">Drawings</a> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
   </div>
   <hr>
 
@@ -126,7 +126,10 @@
     document.body.classList.toggle('tiled', tiled);
     btnTiled.classList.toggle('on', tiled);
     btnFull.classList.toggle('on', !tiled);
+    // Remember the choice so the other pages show the same background.
+    try { localStorage.setItem('bgMode', tiled ? 'tiled' : 'full'); } catch (e) {}
   }
+  try { if (localStorage.getItem('bgMode') === 'tiled') setMode(true); } catch (e) {}
   btnFull.addEventListener('click', function () { setMode(false); });
   btnTiled.addEventListener('click', function () { setMode(true); });
   // Like buttons are just for show in this preview.

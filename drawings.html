@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drawings</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: #000;
+    background-color: #7fc9c3;
+  }
+  #bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #7fc9c3;
+    background-image: url("duck-full.jpg");
+    background-size: cover;
+    background-position: 42% 50%;
+    background-repeat: no-repeat;
+  }
+  body.tiled #bg {
+    background-image: url("duck-tile.jpg");
+    background-size: 225px 300px;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+  a:link { color: #0000EE; }
+  a:visited { color: #551A8B; }
+  .page {
+    max-width: 600px;
+    margin: 28px auto 40px;
+    box-sizing: border-box;
+    width: calc(100% - 28px);
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.62);
+    border: 4px ridge #999;
+  }
+  h1 { text-align: center; font-size: 30px; margin: 6px 0 4px; }
+  .nav { text-align: center; margin: 10px 0; }
+  .soon { text-align: center; font-style: italic; margin: 28px 0; }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<script>
+  // Use the same background as the home page preview (full screen or tiled).
+  try { if (localStorage.getItem('bgMode') === 'tiled') document.body.classList.add('tiled'); } catch (e) {}
+</script>
+
+<div class="page">
+  <h1>Drawings</h1>
+  <hr>
+  <div class="nav">
+    [ <a href="index.html">Home</a> | <a href="essays.html">Essays</a> | <b>Drawings</b> | <a href="photos.html">Photos</a> | <a href="about.html">About Me</a> ]
+  </div>
+  <hr>
+
+  <p class="soon">Coming soon!</p>
+
+  <hr>
+</div>
+</body>
+</html>
